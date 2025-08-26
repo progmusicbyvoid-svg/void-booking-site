@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V( )ID // Void Distortion — Booking</title>
+  <meta name="description" content="Official booking portal for V( )ID // Void Distortion. Photos, videos, press kit, technical rider, and contact for promoters and event organizers." />
+  <meta property="og:title" content="V( )ID // Void Distortion — Booking" />
+  <meta property="og:description" content="Photos, videos, press kit, technical rider, contact, and shows." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-void-1200x630.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/og-void-1200x630.png" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14; /* almost-black */
+      --bg-2: #121825; /* panels */
+      --text: #e6e8ef; /* high-contrast text */
+      --muted: #9aa4b2; /* secondary text */
+      --acc: #7f5af0; /* purple */
+      --acc-2: #2cb67d; /* green */
+      --border: #1f2937; /* subtle borders */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --pad: clamp(14px, 2.5vw, 24px);
+      --wide: min(1200px, 92vw);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(127,90,240,.12), transparent 60%),
+                  radial-gradient(1200px 700px at 80% 10%, rgba(44,182,125,.10), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      letter-spacing: .1px;
+    }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: saturate(140%) blur(8px);
+      background: rgba(11,15,20,.65);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; width: var(--wide); margin: 0 auto; padding: 10px var(--pad); }
+    .brand { display:flex; align-items:center; gap:14px; text-decoration: none; color: var(--text); letter-spacing: .5px; }
+    .brand-logo {
+      width: 40px; height: 40px; border-radius: 8px;
+      object-fit: contain;
+      background: transparent;
+      box-shadow: var(--shadow);
+    }
+    .brand h1 { font-size: 16px; margin: 0; font-weight: 800; text-transform: uppercase; }
+    nav ul { display:flex; gap: 10px; list-style:none; padding:0; margin:0; }
+    nav a { text-decoration:none; color: var(--text); padding: 10px 14px; border-radius: 999px; border:1px solid transparent; opacity:.9; }
+    nav a:hover { border-color: var(--acc); background: rgba(127,90,240,.12); opacity:1; }
+
+    /* Hero */
+    .hero { width: var(--wide); margin: 32px auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; align-items: center; }
+    .hero-card { background: linear-gradient(180deg, rgba(18,24,37,.9), rgba(16,20,30,.9)); border:1px solid var(--border); border-radius: var(--radius); padding: clamp(18px, 3vw, 32px); box-shadow: var(--shadow); }
+    .hero h2 { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(28px, 5vw, 56px); line-height: 1.05; margin: 0 0 10px; letter-spacing: .5px; }
+    .hero p.lead { color: var(--muted); margin-top: 6px; }
+    .cta-row { display:flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .btn { display:inline-flex; align-items:center; gap:.6rem; padding: 12px 16px; border-radius: 12px; border:1px solid var(--border); color: var(--text); text-decoration:none; background: #151c2b; box-shadow: var(--shadow); }
+    .btn.primary { background: linear-gradient(135deg, var(--acc), #9e8cfb); color:#0b0f14; border-color: #0000; font-weight: 700; }
+    .btn.ghost { background: transparent; }
+    .meta { display:flex; gap: 14px; align-items:center; color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+    /* Sections */
+    section { width: var(--wide); margin: 48px auto; }
+    .section-title { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(22px, 4vw, 34px); margin-bottom: 12px; letter-spacing: .3px; }
+    .kicker { color: var(--acc-2); font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; font-size: 12px; }
+    .panel { background: var(--bg-2); border:1px solid var(--border); border-radius: var(--radius); padding: var(--pad); box-shadow: var(--shadow); }
+
+    /* Media grid */
+    .grid { display:grid; gap: 16px; }
+    .grid.media { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .media iframe { width: 100%; height: clamp(200px, 30vw, 360px); border: none; border-radius: 12px; background:#000; }
+    .bandcamp-embed { height: 160px; }
+
+    /* Photos grid */
+    .grid.photos-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .grid.photos-grid img { width: 100%; height: auto; border-radius: 12px; border: none; background:#000; cursor: zoom-in; }
+
+    /* Info columns */
+    .cols { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    /* Tables */
+    table { width:100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom:1px solid var(--border); padding: 10px; vertical-align: top; }
+    th { text-align:left; color: var(--muted); font-weight: 600; }
+    tr:hover td { background: rgba(255,255,255,.02); }
+
+    /* Footer */
+    footer { margin-top: 64px; border-top: 1px solid var(--border); }
+    .foot { width: var(--wide); margin: 0 auto; padding: 20px var(--pad); color: var(--muted); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+
+    /* Badges & chips */
+    .chip { display:inline-flex; align-items:center; gap:.4rem; padding: 6px 10px; border-radius: 999px; background: rgba(127,90,240,.14); color: #d9d3ff; border: 1px solid rgba(127,90,240,.4); font-size: 12px; }
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .cols { grid-template-columns: 1fr; }
+      .media iframe, .media img { height: 220px; }
+      nav ul { display:none; }
+      .menu-toggle { display:inline-flex; }
+    }
+    @media (min-width: 921px) { .menu-toggle { display:none; } }
+
+    /* Simple mobile menu */
+    #mobileMenu { display:none; position: fixed; inset: 64px 10px auto 10px; background: var(--bg-2); border:1px solid var(--border); border-radius: 16px; padding: 10px; box-shadow: var(--shadow); }
+    #mobileMenu a { display:block; padding: 12px; border-radius: 10px; color: var(--text); text-decoration: none; }
+    #mobileMenu a:hover { background: rgba(127,90,240,.12); }
+
+    /* Splash (logo-first) */
+    .splash { display:grid; place-items:center; width:100%; padding: 40px 0 10px; position: relative; isolation: isolate; }
+    .splash-inner { text-align:center; position: relative; display: inline-block; }
+    /* Halo gradient fully enveloping the logo */
+    .splash-inner::before {
+      content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: min(95vw, 1200px); height: min(80vw, 1000px);
+      background:
+        radial-gradient(farthest-side at 28% 25%, rgba(127,90,240,.55), rgba(127,90,240,0) 85%),
+        radial-gradient(farthest-side at 72% 75%, rgba(44,182,125,.45), rgba(44,182,125,0) 85%),
+        radial-gradient(farthest-corner at 50% 60%, rgba(127,90,240,.22), rgba(127,90,240,0) 90%);
+      filter: blur(26px);
+      opacity: .9;
+      border-radius: 40px;
+      pointer-events: none; z-index: -1;
+    }
+    /* Faint animated shimmer */
+    .splash-inner::after {
+      content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(12deg);
+      width: min(100vw, 1300px); height: min(85vw, 1100px);
+      background: linear-gradient(90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(127,90,240,.12) 45%,
+        rgba(44,182,125,.12) 55%,
+        rgba(255,255,255,0) 100%);
+      background-size: 300% 100%;
+      filter: blur(24px);
+      opacity: .22;
+      pointer-events: none; z-index: -1;
+      animation: shimmer-pan 14s linear infinite;
+      will-change: background-position;
+    }
+    @keyframes shimmer-pan { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+    @media (prefers-reduced-motion: reduce) { .splash-inner::after { animation: none; } }
+
+    .splash-logo { width: min(680px, 85vw); height: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5)); position: relative; }
+    .scroll-hint { color: var(--muted); margin-top:8px; font-size: 18px; }
+
+    /* Small helpers */
+    .muted { color: var(--muted); }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .art { border-radius: 14px; border:1px solid var(--border); box-shadow: var(--shadow); object-fit: cover; height: 100%; width: 100%; }
+    /* Ensure hero media has intrinsic height */
+    .hero-video, #heroImage { height: auto; }
+    .pill-links { display:flex; flex-wrap: wrap; gap: 10px; }
+    /* spacing under photos download button */
+    #photos .pill-links { margin-top: 12px; }
+    .note { font-size: 13px; color: var(--muted); }
+    .warning { color: #fca5a5; }
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:2000}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:90vw;max-height:90vh;border-radius:12px}
+    .lightbox .close{position:absolute;top:16px;right:18px;font-size:28px;line-height:1;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--text);padding:6px 10px}
+    .lightbox .prev,.lightbox .next{position:absolute;top:50%;transform:translateY(-50%);background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--text);padding:8px 12px}
+    .lightbox .prev{left:16px}
+    .lightbox .next{right:16px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#top">
+        <img class="brand-logo" src="assets/VOID-logo_2.png" alt="" aria-hidden="true">
+        <h1>V( )ID // Void Distortion</h1>
+      </a>
+      <button class="btn ghost menu-toggle" aria-controls="mobileMenu" aria-expanded="false" onclick="toggleMenu()">☰ Menu</button>
+      <nav>
+        <ul aria-label="Sections">
+          <li><a href="#media">Media</a></li>
+          <li><a href="#photos">Photos</a></li>
+          <li><a href="#shows">Shows</a></li>
+          <li><a href="#presskit">Press Kit</a></li>
+          <li><a href="#rider">Tech Rider</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="mobileMenu" role="dialog" aria-label="Mobile menu">
+      <a href="#media" onclick="toggleMenu(false)">Media</a>
+      <a href="#photos" onclick="toggleMenu(false)">Photos</a>
+      <a href="#shows" onclick="toggleMenu(false)">Shows</a>
+      <a href="#presskit" onclick="toggleMenu(false)">Press Kit</a>
+      <a href="#rider" onclick="toggleMenu(false)">Tech Rider</a>
+      <a href="#contact" onclick="toggleMenu(false)">Contact</a>
+    </div>
+  </header>
+
+  <main id="top" tabindex="-1">
+    <!-- SPLASH / CENTERED LOGO -->
+    <section class="splash" aria-label="Band logo">
+      <div class="splash-inner">
+        <img src="assets/VOID-logo_1.png" alt="V( )ID logo" class="splash-logo" />
+        <div class="scroll-hint" aria-hidden="true">▼</div>
+      </div>
+    </section>
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-card">
+        <span class="kicker">Progressive • Instrumental • Modern Metal</span>
+        <h2>Book <span style="color:var(--acc)">V( )ID</span> for your next event</h2>
+        <p class="lead">Based in Freiburg, Germany. High-energy live show with cinematic dynamics and precise technical execution.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Request a Booking</a>
+          <a class="btn" href="#presskit">Open Press Kit</a>
+          <a class="btn ghost" href="#rider">View Technical Rider</a>
+        </div>
+        <div class="meta" aria-label="Quick facts">
+          <span class="chip">4-piece live band</span>
+          <span class="chip">Own backline available</span>
+          <span class="chip">Flexible stage plot</span>
+        </div>
+      </div>
+      <div class="panel" aria-label="Featured artwork">
+        <!-- Set HERO_VIDEO_ENABLED=true in the script to switch from image to video once you upload assets/hero-clip.mp4 (and webm). -->
+        <video id="heroVideo" class="art hero-video" poster="assets/hero-artwork.png" preload="auto" muted playsinline autoplay loop style="display:none">
+          <source src="assets/hero-clip.mp4" type="video/mp4" />
+          <source src="assets/hero-clip.webm" type="video/webm" />
+        </video>
+        <img id="heroImage" src="assets/hero-artwork.png" alt="Band artwork / live photo" class="art" />
+        <!-- Dev note: Add hero-clip.mp4 (and optional .webm) to /assets and set HERO_VIDEO_ENABLED=true in the script to enable video. Keep size <~15MB, 6–8s, 1080p max. -->
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media" aria-label="Audiovisual Media">
+      <h3 class="section-title">Media</h3>
+      <p class="muted">Short links: 
+        <a class="btn ghost" href="https://voiddistortion.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+        <a class="btn ghost" href="https://youtube.com/@voiddistortionyt" target="_blank" rel="noopener">YouTube</a>
+        <a class="btn ghost" href="https://instagram.com/voiddistortion" target="_blank" rel="noopener">Instagram</a>
+      </p>
+      <div class="grid media">
+        <!-- YouTube Highlight -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tlHLYGu9udU?si=mHwiSBmoR_-Ovaz7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <!-- Bandcamp Embed -->
+        <iframe class="bandcamp-embed" style="border: 0; width: 100%; height: 160px;" src="https://bandcamp.com/EmbeddedPlayer/track=1166875929/size=large/bgcol=111827/linkcol=7f5af0/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://voiddistortion.bandcamp.com/track/monolyth">Monolyth by V( )ID</a></iframe>
+      </div>
+      <!-- Dev note: Add more embeds to the Media grid as needed. -->
+    </section>
+
+    <!-- PHOTOS -->
+    <section id="photos" aria-label="Photos">
+      <h3 class="section-title">Photos</h3>
+      <div class="grid photos-grid">
+        <img src="assets/press/V%28%20%29ID_Bandphoto.jpg" alt="Band photo" />
+        <img src="assets/press/V%28%20%29ID_Bandphoto2.jpg" alt="Band photo 2" />
+        <img src="assets/press/Robin_Phil.jpg" alt="Robin and Phil live" />
+        <img src="assets/press/G%C3%A4rry.jpg" alt="Gärry live" />
+      </div>
+      <!-- Dev note: Photos keep their original aspect ratio; drop replacements into assets/press/. -->
+      <div class="pill-links">
+        <a class="btn" href="assets/VOID-presskit.zip">Download Press Photos (.zip)</a>
+      </div>
+    </section>
+
+    <!-- SHOWS -->
+    <section id="shows" aria-label="Upcoming and past shows">
+      <h3 class="section-title">Shows</h3>
+      <div class="cols">
+        <div class="panel" aria-label="Upcoming shows">
+          <h4>Upcoming</h4>
+          <table aria-describedby="upcoming-note">
+            <thead><tr><th>Date</th><th>City / Venue</th><th>Notes</th></tr></thead>
+            <tbody id="upcomingBody">
+              <tr><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+          <!-- Dev note: upcoming shows populated via JS array in the script; full YYYY-MM-DD entries get JSON-LD. -->
+        </div>
+        <div class="panel" aria-label="Past shows">
+          <h4>Selected past shows</h4>
+          <table>
+            <thead><tr><th>Date</th><th>City / Venue</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>2025‑06‑11</td><td>Freiburg — Cafe Ruefetto (Unicorn Sessions)</td><td>Live session</td></tr>
+              <tr><td>2024‑09‑28</td><td>Kollnau — Proberaum Festival #3</td><td>Festival slot</td></tr>
+              <tr><td>2024‑01‑20</td><td>Kollnau — Proberaum Festival #2</td><td>Festival slot</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESS KIT -->
+    <section id="presskit" aria-label="Press materials">
+      <h3 class="section-title">Press Kit</h3>
+      <div class="cols">
+        <div class="panel">
+          <h4>Short Bio</h4>
+          <p><strong>V( )ID</strong> is an instrumental metal band with progressive influences. They create a synthesis of crushing rhythms, heavy drums and an ever changing duality between order and chaos. With unusual song structures as well as catchy riffs they create a sonic journey throughout their songs.</p>
+          <ul class="muted">
+            <li><strong>RIYL:</strong> modern prog, djent, cinematic post-rock</li>
+            <li><strong>Stage time:</strong> 30–50 min (adaptable)</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Downloads</h4>
+          <div class="pill-links">
+            <a class="btn" href="assets/VOID-presskit.zip">Press Photos (.zip)</a>
+            <a class="btn" href="assets/VOID-logo_1.png">Logo, black BG (.png)</a>
+            <a class="btn" href="assets/VOID-logo_2.png">Logo, transparent BG (.png)</a>
+            <a class="btn" href="assets/VOID-Tech-Rider.pdf">Technical Rider (PDF)</a>
+            <a class="btn" href="#rider">Technical Rider (HTML)</a>
+          </div>
+          <!-- Dev note: Keep the Rider PDF filename stable (assets/VOID-Tech-Rider.pdf) for consistent external linking. -->
+        </div>
+        <div class="panel">
+          <h4>Highlights</h4>
+          <ul>
+            <li>V( )ID comes to life. October 2022.</li>
+            <li>First full lineup with Matze on Bass. October 2023.</li>
+            <li>Demo released: Monolyth. December 19, 2024. <a href="https://voiddistortion.bandcamp.com/track/monolyth" target="_blank" rel="noopener">Link</a></li>
+            <li>First gig: June 2025.</li>
+            <li>current full lineup with David on Bass: July 2025.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL RIDER (summary) -->
+    <section id="rider" aria-label="Technical Rider">
+      <h3 class="section-title">Technical Rider (Summary)</h3>
+      <div class="cols">
+        <div class="panel">
+          <h4>Microphoning (FOH Channels)</h4>
+          <table>
+            <thead><tr><th>#</th><th>Instrument</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Voice — MC (no singing)</td><td>Talk to audience</td></tr>
+              <tr><td>2</td><td>Bass</td><td>DI preferred</td></tr>
+              <tr><td>3</td><td>Guitar — Rhythm</td><td>Mic amp</td></tr>
+              <tr><td>4</td><td>Guitar — Lead</td><td>Mic amp</td></tr>
+              <tr><td>5</td><td>Drums — Kick</td><td></td></tr>
+              <tr><td>6</td><td>Drums — Snare</td><td></td></tr>
+              <tr><td>7</td><td>Drums — Overhead R</td><td></td></tr>
+              <tr><td>8</td><td>Drums — Overhead L</td><td></td></tr>
+              <tr><td>9</td><td>Drums — Hi-hat</td><td></td></tr>
+              <tr><td>10</td><td>Drums — Tom 1</td><td>Optional with OH</td></tr>
+              <tr><td>11</td><td>Drums — Tom 2</td><td>Optional with OH</td></tr>
+              <tr><td>12</td><td>Drums — Tom 3</td><td>Optional with OH</td></tr>
+              <tr><td>13</td><td>Drums — Floor</td><td>Optional with OH</td></tr>
+            </tbody>
+          </table>
+          <p class="note">For full details, see the PDF rider in the Press Kit. Channel count can scale to the venue.</p>
+        </div>
+        <div class="panel">
+          <h4>We Can Bring</h4>
+          <table>
+            <thead><tr><th>Item</th><th>Qty</th><th>Can lend?</th></tr></thead>
+            <tbody>
+              <tr><td>Bass drum</td><td>1</td><td>Yes</td></tr>
+              <tr><td>Snare drum</td><td>1</td><td>Yes</td></tr>
+              <tr><td>Rack toms</td><td>3</td><td>Yes</td></tr>
+              <tr><td>Floor toms</td><td>1</td><td>Yes</td></tr>
+              <tr><td>Cymbals</td><td>9</td><td>Only HH & Ride</td></tr>
+              <tr><td>Cymbal stands</td><td>6</td><td>Yes</td></tr>
+              <tr><td>Tripod rack</td><td>1</td><td>No</td></tr>
+              <tr><td>Drum chair</td><td>1</td><td>Yes</td></tr>
+              <tr><td>Hi-hat machine</td><td>1</td><td>Yes</td></tr>
+              <tr><td>Bass drum pedals</td><td>2 (main + spare)</td><td>No</td></tr>
+              <tr><td>Drum mics</td><td>6 dynamic</td><td>Yes</td></tr>
+              <tr><td>Mic stands (drums)</td><td>5 clamps + 1 mini</td><td>Yes</td></tr>
+              <tr><td>Vocal mic</td><td>1</td><td>No</td></tr>
+              <tr><td>Vocal mic stand</td><td>1</td><td>Yes</td></tr>
+              <tr><td>Mono line cables (5 m)</td><td>4</td><td>No</td></tr>
+              <tr><td>XLR cables (5 m)</td><td>4</td><td>No</td></tr>
+              <tr><td>PA/Monitor cabs (600 W RMS)</td><td>2</td><td>Yes</td></tr>
+              <tr><td>PA tripods</td><td>2</td><td>Yes</td></tr>
+              <tr><td>Bass</td><td>1</td><td>No</td></tr>
+              <tr><td>Guitar</td><td>1</td><td>No</td></tr>
+              <tr><td>Guitar amp</td><td>1</td><td>No</td></tr>
+              <tr><td>Bass amp</td><td>1</td><td>Yes</td></tr>
+              <tr><td>Mixer (14ch, passive)</td><td>1</td><td>Yes</td></tr>
+              <tr><td>PA cab w/ internal mixer (300 W RMS)</td><td>2</td><td>Yes</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h4>Stage & Power</h4>
+          <ul>
+            <li><strong>Stage size:</strong> 4 m x 3 m minimum</li>
+            <li><strong>Power:</strong> 4× Schucko 230 V on stage (1 for each band member)</li>
+            <li><strong>Monitoring:</strong> 3 monitor mixes</li>
+            <li><strong>Backline preference:</strong> amps, cabs, drums if provided</li>
+            <li><strong>Changeover time:</strong> 20 min (left-handed drummer considerations)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note warning"><strong>Legal:</strong> The technical rider forms part of the guest performance contract. If minimum requirements are not met on show day, we reserve the right to cancel the performance; agreed fee and travel costs remain due. </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-label="Contact & booking">
+      <h3 class="section-title">Contact</h3>
+      <div class="cols">
+        <div class="panel">
+          <h4>Booking</h4>
+          <p>For booking inquiries, please email us with date, venue, city, event details, expected backline, and proposed fee.</p>
+          <div class="pill-links" aria-label="Contact methods">
+            <a class="btn primary" href="mailto:progmusicbyvoid@gmail.com?subject=Booking%20Inquiry%20%E2%80%94%20V(%20)ID%20%2F%2F%20Void%20Distortion&body=Hi%20V(%20)ID%2C%0A%0AWe'd%20like%20to%20book%20you%20for%20%5Bevent%20name%5D%20on%20%5Bdate%5D%20at%20%5Bvenue%5D%20in%20%5Bcity%5D.%20Set%20length%3A%20%5Bxx%20min%5D.%20Backline%20provided%3A%20%5Bdetails%5D.%20Budget%3A%20%5Bxxx%E2%82%AC%5D.%0A%0AThanks!">Email: progmusicbyvoid@gmail.com</a>
+            <a class="btn" href="https://instagram.com/voiddistortion" target="_blank" rel="noopener">Instagram DM</a>
+            <a class="btn" href="https://youtube.com/@voiddistortionyt" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <!-- Confirm before publishing phone numbers publicly -->
+          <p class="note">Privacy: we share direct phone contacts only after initial confirmation via email or DM. Public page routes all booking through official channels.</p>
+        </div>
+        <div class="panel">
+          <h4>Socials</h4>
+          <ul>
+            <li><strong>Bandcamp:</strong> <a href="https://voiddistortion.bandcamp.com" target="_blank" rel="noopener">voiddistortion.bandcamp.com</a></li>
+            <li><strong>Instagram:</strong> <a href="https://instagram.com/voiddistortion" target="_blank" rel="noopener">@voiddistortion</a></li>
+            <li><strong>YouTube:</strong> <a href="https://youtube.com/@voiddistortionyt" target="_blank" rel="noopener">@voiddistortionyt</a></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Files</h4>
+          <ul>
+            <li><a href="assets/VOID-presskit.zip">Press Photos (zip)</a> — high-res (300 dpi) & web (1600px)</li>
+            <li><a href="assets/VOID-Tech-Rider.pdf">Technical Rider (PDF)</a> — latest version</li>
+            <li><a href="#rider">Technical Rider (HTML)</a> — quick reference</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+      <!-- Lightbox root -->
+    <div id="lightbox" class="lightbox" aria-label="Image viewer" role="dialog" aria-modal="true">
+      <button class="close" aria-label="Close">×</button>
+      <button class="prev" aria-label="Previous">‹</button>
+      <img alt="Expanded photo" />
+      <button class="next" aria-label="Next">›</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>&copy; <span id="year"></span> V( )ID // Void Distortion</div>
+      <img src="assets/VOID-logo_2.png" alt="Void Distortion symbol" style="height:44px; opacity:.85" />
+      <div class="muted">Built as a lightweight, single-file static site.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle this to enable the hero video once uploaded
+    const HERO_VIDEO_ENABLED = true;
+    // Mobile menu toggle
+    function toggleMenu(force) {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.querySelector('.menu-toggle');
+      const open = force !== undefined ? force : menu.style.display === 'none' || !menu.style.display;
+      menu.style.display = open ? 'block' : 'none';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Example: add upcoming shows programmatically (edit or replace)
+    const upcoming = [
+      { date: '2025-09-19', city: 'Weingarten', venue: 'U&D Festival', notes: '' },
+      { dateText: 'Oct 2025', city: 'Freiburg', venue: 'The Beatbar', notes: '' },
+      { dateText: 'Nov 2025', city: 'Freiburg', venue: 'Elpi', notes: '' },
+      { dateText: 'Dec 2025', city: 'Freiburg', venue: 'Flamingo Bar', notes: '' },
+      { dateText: 'Jan 2026', city: 'Freiburg', venue: 'The Slow Club', notes: '' },
+    ];
+    const upBody = document.getElementById('upcomingBody');
+    if (upcoming.length && upBody) {
+      upBody.innerHTML = '';
+      upcoming.forEach(ev => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${ev.date ? formatDate(ev.date) : (ev.dateText || 'TBD')}</td><td>${ev.city} — ${ev.venue}</td><td>${ev.notes||''}</td>`;
+        upBody.appendChild(tr);
+        // Structured data for SEO
+        if (ev.date) addEventJSONLD(ev);
+      });
+    }
+
+    function formatDate(iso) {
+      const d = new Date(iso);
+      if (isNaN(d)) return iso;
+      return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
+    }
+
+    function addEventJSONLD(ev) {
+      const data = {
+        '@context': 'https://schema.org',
+        '@type': 'MusicEvent',
+        'name': `V( )ID — ${ev.city}`,
+        'startDate': ev.date,
+        'location': {
+          '@type': 'Place',
+          'name': ev.venue,
+          'address': {
+            '@type': 'PostalAddress',
+            'addressLocality': ev.city,
+            'addressCountry': 'DE'
+          }
+        },
+        'performer': {
+          '@type': 'MusicGroup',
+          'name': 'V( )ID'
+        }
+      };
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(data);
+      document.head.appendChild(script);
+    }
+
+    // Photo lightbox
+    (function() {
+      const imgs = Array.from(document.querySelectorAll('.photos-grid img'));
+      const lb = document.getElementById('lightbox');
+      if (!imgs.length || !lb) return;
+      const lbImg = lb.querySelector('img');
+      const btnClose = lb.querySelector('.close');
+      const btnPrev = lb.querySelector('.prev');
+      const btnNext = lb.querySelector('.next');
+      let idx = 0;
+
+      function open(i){ idx = i; update(); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+      function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+      function update(){ const el = imgs[idx]; lbImg.src = el.src; lbImg.alt = el.alt || 'Photo'; }
+      function prev(){ idx = (idx - 1 + imgs.length) % imgs.length; update(); }
+      function next(){ idx = (idx + 1) % imgs.length; update(); }
+
+      imgs.forEach((img, i)=> img.addEventListener('click', ()=> open(i)));
+      btnClose.addEventListener('click', close);
+      lb.addEventListener('click', (e)=> { if (e.target === lb) close(); });
+      btnPrev.addEventListener('click', prev);
+      btnNext.addEventListener('click', next);
+      window.addEventListener('keydown', e=>{
+        if(!lb.classList.contains('open')) return;
+        if(e.key==='Escape') close();
+        else if(e.key==='ArrowLeft') prev();
+        else if(e.key==='ArrowRight') next();
+      });
+    })();
+
+    // Optional: hero video — enable with HERO_VIDEO_ENABLED
+    (function(){
+      if(!HERO_VIDEO_ENABLED) return;
+      const v = document.getElementById('heroVideo');
+      const img = document.getElementById('heroImage');
+      if(!v || !img) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // honor accessibility
+      // Ensure attributes for widest autoplay support
+      v.muted = true; v.autoplay = true; v.playsInline = true; v.setAttribute('autoplay',''); v.preload = 'auto';
+      v.style.display = 'block';
+      img.style.display = 'none';
+      const tryPlay = () => v.play().catch(()=>{});
+      document.addEventListener('visibilitychange', tryPlay, { once:true });
+      tryPlay();
+    })();
+  </script>
+</body>
+</html>
