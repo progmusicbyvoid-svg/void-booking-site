@@ -9,3 +9,5 @@ ToDos:
 3. Analytics: privacy-friendly (e.g., Plausible/Umami) with a data-policy link.
 
 4. Accessibility pass: run a quick ARIA/contrast check and add skip-links.
+
+5. Add explicit licensing to the media in the repo.
