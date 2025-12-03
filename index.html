@@ -306,12 +306,11 @@
           <h4>Selected past shows</h4>
           <table>
             <thead><tr><th>Date</th><th>City / Venue</th><th>Notes</th></tr></thead>
-            <tbody>
-              <tr><td>2025‑06‑11</td><td>Freiburg — Cafe Ruefetto (Unicorn Sessions)</td><td>Live session</td></tr>
-              <tr><td>2024‑09‑28</td><td>Kollnau — Proberaum Festival #3</td><td>Festival slot</td></tr>
-              <tr><td>2024‑01‑20</td><td>Kollnau — Proberaum Festival #2</td><td>Festival slot</td></tr>
+            <tbody id="pastBody">
+              <tr><td>—</td><td>—</td><td>—</td></tr>
             </tbody>
           </table>
+          <!-- Dev note: past shows populated via JS array in the script. -->
         </div>
       </div>
     </section>
@@ -493,21 +492,35 @@
 
     // Example: add upcoming shows programmatically (edit or replace)
     const upcoming = [
-      { date: '2025-09-19', city: 'Weingarten (DE)', venue: 'U&D Festival', notes: '' },
       { date: '2025-12-05', city: 'Freiburg (DE)', venue: 'Elpi', notes: 'with PakChoi (DE)' },
       { date: '2026-01-08', city: 'Freiburg (DE)', venue: 'Slow Club', notes: 'with Mi (FR)' },
       { date: '2026-01-17', city: 'Freiburg (DE)', venue: 'Eimer', notes: 'with Slothrider (DE) and PakChoi (DE)' },
       { dateText: 'Feb 2026', city: 'Freudenstadt (DE)', venue: 'TBA', notes: '' },
     ];
-    const upBody = document.getElementById('upcomingBody');
-    if (upcoming.length && upBody) {
-      upBody.innerHTML = '';
-      upcoming.forEach(ev => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${ev.date ? formatDate(ev.date) : (ev.dateText || 'TBD')}</td><td>${ev.city} — ${ev.venue}</td><td>${ev.notes||''}</td>`;
-        upBody.appendChild(tr);
-        // Structured data for SEO
-        if (ev.date) addEventJSONLD(ev);
+    // Selected past shows; add or edit items here
+    const pastShows = [
+      { date: '2025-09-19', city: 'Weingarten (DE)', venue: 'U&D Festival', notes: 'Festival slot - Closing Act (Day1)' },
+      { date: '2025-06-11', city: 'Freiburg (DE)', venue: 'Cafe Ruefetto (Unicorn Sessions)', notes: 'with Rika Bender (DE)' },
+      { date: '2024-09-28', city: 'Kollnau (DE)', venue: 'Proberaum Festival #3', notes: 'Festival slot' },
+      { date: '2024-01-20', city: 'Kollnau (DE)', venue: 'Proberaum Festival #2', notes: 'Festival slot' },
+    ];
+    // Render both tables with the same helper for consistency
+    renderShows(upcoming, 'upcomingBody', { addJSONLD: true });
+    renderShows(pastShows, 'pastBody');
+
+    function renderShows(shows, targetId, options = {}) {
+      const body = document.getElementById(targetId);
+      if (!body) return;
+      if (!shows || !shows.length) {
+        body.innerHTML = '<tr><td>—</td><td>—</td><td>—</td></tr>';
+        return;
+      }
+      body.innerHTML = '';
+      shows.forEach(show => {
+        const dateText = show.date ? formatDate(show.date) : (show.dateText || 'TBD');
+        const row = `<td>${dateText}</td><td>${show.city} — ${show.venue}</td><td>${show.notes || ''}</td>`;
+        body.insertAdjacentHTML('beforeend', `<tr>${row}</tr>`);
+        if (options.addJSONLD && show.date) addEventJSONLD(show);
       });
     }
 
