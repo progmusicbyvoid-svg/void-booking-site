@@ -414,7 +414,7 @@
           <ul>
             <li><strong>Stage size:</strong> 4 m x 3 m minimum</li>
             <li><strong>Power:</strong> 4× Schucko 230 V on stage (1 for each band member)</li>
-            <li><strong>Monitoring:</strong> 3 monitor mixes</li>
+            <li><strong>Monitoring:</strong> 4 monitor mixes</li>
             <li><strong>Backline preference:</strong> amps, cabs, drums if provided</li>
             <li><strong>Changeover time:</strong> 20 min (left-handed drummer considerations)</li>
           </ul>
@@ -492,17 +492,20 @@
 
     // Example: add upcoming shows programmatically (edit or replace)
     const upcoming = [
-      { date: '2025-12-05', city: 'Freiburg (DE)', venue: 'Elpi', notes: 'with PakChoi (DE)' },
-      { date: '2026-01-08', city: 'Freiburg (DE)', venue: 'Slow Club', notes: 'with Mi (FR)' },
-      { date: '2026-01-17', city: 'Freiburg (DE)', venue: 'Eimer', notes: 'with Slothrider (DE) and PakChoi (DE)' },
-      { dateText: 'Feb 2026', city: 'Freudenstadt (DE)', venue: 'TBA', notes: '' },
+      { date: '2026-10-09', city: 'Freiburg (DE)', venue: 'Artik Freiburg', notes: 'with Thronehammer (DE) and Bottomless (DE)' },
     ];
     // Selected past shows; add or edit items here
     const pastShows = [
-      { date: '2025-09-19', city: 'Weingarten (DE)', venue: 'U&D Festival', notes: 'Festival slot - Closing Act (Day1)' },
-      { date: '2025-06-11', city: 'Freiburg (DE)', venue: 'Cafe Ruefetto (Unicorn Sessions)', notes: 'with Rika Bender (DE)' },
-      { date: '2024-09-28', city: 'Kollnau (DE)', venue: 'Proberaum Festival #3', notes: 'Festival slot' },
-      { date: '2024-01-20', city: 'Kollnau (DE)', venue: 'Proberaum Festival #2', notes: 'Festival slot' },
+      { date: '2026-03-07', city: 'Kollnau (DE)', venue: 'Proberaum Festival #4', notes: 'Festival slot' },
+      { date: '2026-02-28', city: 'Freudenstadt (DE)', venue: 'F23 Jugnszentrum Kids', notes: 'with If It Itches (DE)' },
+      { date: '2026-02-21', city: 'Offenburg (DE)', venue: 'Stud', notes: 'with Ruka (DE) and PakChoi (DE)' },
+      { date: '2026-01-08', city: 'Freiburg (DE)', venue: 'Slow Club', notes: 'with Ni (FR)' },
+      { date: '2026-01-17', city: 'Freiburg (DE)', venue: 'Eimer', notes: 'with Slothrider (DE) and PakChoi (DE)' },
+//      { date: '2025-12-05', city: 'Freiburg (DE)', venue: 'Elpi', notes: 'with PakChoi (DE)' },
+      { date: '2025-09-19', city: 'Weingarten (DE)', venue: 'U&D Festival', notes: 'Festival slot - Closing Act (Day 1)' },
+//      { date: '2025-06-11', city: 'Freiburg (DE)', venue: 'Cafe Ruefetto (Unicorn Sessions)', notes: 'with Rika Bender (DE)' },
+//      { date: '2024-09-28', city: 'Kollnau (DE)', venue: 'Proberaum Festival #3', notes: 'Festival slot' },
+//      { date: '2024-01-20', city: 'Kollnau (DE)', venue: 'Proberaum Festival #2', notes: 'Festival slot' },
     ];
     // Render both tables with the same helper for consistency
     renderShows(upcoming, 'upcomingBody', { addJSONLD: true });
